@@ -1,0 +1,24 @@
+digraph DXOS {
+graph [fontname="Liberation Sans", fontsize=24, bgcolor="#ffffff", pad=0.35, nodesep=0.35, ranksep=0.65, labelloc=t, labeljust=l, splines=polyline];
+node [shape=box, style="rounded,filled", fillcolor="#EAF2FF", color="#4575AC", fontname="Liberation Sans", fontsize=15, margin="0.22,0.15", penwidth=1.3];
+edge [fontname="Liberation Sans", fontsize=11, color="#60738A", arrowsize=0.8];
+label="02  /  AI CHỊU TRÁCH NHIỆM CHO MỘT YÊU CẦU?";
+
+rankdir=TB;
+ui [label="Cổng React / TypeScript\nMang danh tính và workspace đang chọn",fillcolor="#E7F6F0"];
+kc [label="Keycloak + Dịch vụ quyền\nĐăng nhập / thành viên / quyền hiệu lực",fillcolor="#FFF3DD"];
+gw [label="APISIX\nXác thực biên · định tuyến · giới hạn lưu lượng",fillcolor="#FFF3DD"];
+has [label="Hasura\nĐọc / subscription / sửa bản nháp\nQuyền dòng và cột"];
+cmd [label="API nghiệp vụ Go\nGửi / duyệt / từ chối / đóng\nQuyền + trạng thái + phiên bản"];
+cap [label="API năng lực\nTệp · AI · Báo cáo · Tiếp nhận OT\nKiểm quyền tại từng dịch vụ"];
+pg [label="PostgreSQL\nDữ liệu + Audit + Outbox\nRàng buộc và giao dịch",shape=cylinder,fillcolor="#FFF3DD"];
+files [label="Kho đối tượng / AI / BI\nChỉ phục vụ dữ liệu được cấp quyền",shape=cylinder,fillcolor="#FFF3DD"];
+evt [label="Hasura Event Triggers\nGiao sự kiện có thể lặp"];
+kes [label="Kestra\nĐiều phối tác vụ / thử lại\nKhông quyết định thay người duyệt",fillcolor="#F1EAFB"];
+ui -> kc [dir=both,label="1. đăng nhập / ngữ cảnh quyền"];
+ui -> gw [label="2. yêu cầu + token"];
+gw -> has [label="dữ liệu"];gw -> cmd [label="lệnh"];gw -> cap [label="năng lực"];
+has -> pg [label="CRUD có giới hạn"];cmd -> pg [label="giao dịch nguyên tử"];cap -> files;cap -> pg;
+pg -> evt [label="outbox"];evt -> kes [label="webhook nội bộ"];kes -> cmd [label="callback có quyền dịch vụ",constraint=false];
+
+}

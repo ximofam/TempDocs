@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: Apache-2.0
+mutation ThuSuaTrangThaiTrucTiep {
+  update_procurement_requests_by_pk(
+    pk_columns: {id: "20000000-0000-0000-0000-000000000001"}
+    _set: {status: "APPROVED"}
+  ) { id status }
+}

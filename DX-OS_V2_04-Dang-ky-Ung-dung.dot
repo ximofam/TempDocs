@@ -1,0 +1,22 @@
+digraph DXOS {
+graph [fontname="Liberation Sans", fontsize=24, bgcolor="#ffffff", pad=0.35, nodesep=0.35, ranksep=0.65, labelloc=t, labeljust=l, splines=polyline];
+node [shape=box, style="rounded,filled", fillcolor="#EAF2FF", color="#4575AC", fontname="Liberation Sans", fontsize=15, margin="0.22,0.15", penwidth=1.3];
+edge [fontname="Liberation Sans", fontsize=11, color="#60738A", arrowsize=0.8];
+label="04  /  ĐƯA MỘT ỨNG DỤNG VÀO HỆ THỐNG";
+
+rankdir=TB;
+pkg [label="GÓI ỨNG DỤNG\nManifest · schema · quyền · workflow\nUI khai báo / module · handler nghiệp vụ",fillcolor="#EAF2FF"];
+git [label="Git + CI\nKiểm tra hợp đồng / tạo plan / duyệt thay đổi",fillcolor="#F1EAFB"];
+argo [label="Argo CD\nÁp dụng tài nguyên hạ tầng + DXApplication",fillcolor="#F1EAFB"];
+op [label="Go Operator\nPending → Validating → Applying\nTheo dõi từng bước và phiên bản",fillcolor="#F1EAFB"];
+data [label="1. Dữ liệu\nMigration tương thích\nTừ điển thuộc tính",fillcolor="#FFF3DD"];
+auth [label="2. Chính sách\nQuyền DB / Hasura\nClient / role định danh",fillcolor="#FFF3DD"];
+flow [label="3. Tác vụ\nWorkflow phiên bản\nEndpoint nội bộ",fillcolor="#FFF3DD"];
+ready [label="4. Kiểm tra → READY\nMở tuyến APISIX\nCông bố trong danh mục ứng dụng",fillcolor="#E7F6F0"];
+fail [label="FAILED / DEGRADED\nGhi bước lỗi · tiếp tục có kiểm soát\nGiữ bản đang hoạt động nếu có",fillcolor="#FDECEA",color="#B66C65"];
+recon [label="RECONCILE\nĐối soát quyền thiếu + quyền thừa\nĐưa cấu hình về phiên bản Git",fillcolor="#F1EAFB"];
+pkg -> git -> argo -> op -> data -> auth -> flow -> ready;
+op -> fail [label="không hợp lệ"];flow -> fail [label="bước lỗi"];fail -> op [style=dashed,label="khắc phục / thử lại"];
+ready -> recon;recon -> op [style=dashed,label="sai lệch"];
+
+}

@@ -1,0 +1,30 @@
+digraph DXOS {
+graph [fontname="Liberation Sans", fontsize=24, bgcolor="#ffffff", pad=0.35, nodesep=0.35, ranksep=0.65, labelloc=t, labeljust=l, splines=polyline];
+node [shape=box, style="rounded,filled", fillcolor="#EAF2FF", color="#4575AC", fontname="Liberation Sans", fontsize=15, margin="0.22,0.15", penwidth=1.3];
+edge [fontname="Liberation Sans", fontsize=11, color="#60738A", arrowsize=0.8];
+label="01  /  DX-OS — TỪ ỨNG DỤNG ĐẾN LÕI DÙNG CHUNG";
+
+rankdir=TB;
+people [label="NGƯỜI SỬ DỤNG\nNhân viên · Quản lý · Kiểm toán", fillcolor="#F1F5F9"];
+subgraph cluster_apps { label="TẦNG 3  ·  ỨNG DỤNG SỞ HỮU NGHIỆP VỤ"; color="#4575AC"; style=rounded; fontsize=16; margin=20;
+ apps [ordering=out,label="Mua sắm  |  Công việc & Giờ công  |  Bảo trì\nMỗi ứng dụng: dữ liệu riêng · quy tắc · màn hình · workflow"];
+}
+spaces [shape=plain, label=<
+<TABLE BORDER="1" COLOR="#188878" CELLBORDER="0" CELLSPACING="8" CELLPADDING="14" BGCOLOR="#E7F6F0">
+<TR><TD COLSPAN="4"><B>TẦNG 2 · CỔNG LÀM VIỆC H-P-D-I</B></TD></TR>
+<TR><TD><B>H · Con người</B><BR/>Công việc / Lịch</TD><TD><B>P · Quy trình</B><BR/>Biểu mẫu / Hộp duyệt</TD><TD><B>D · Dữ liệu</B><BR/>BI / Audit / Phả hệ</TD><TD><B>I · Trí tuệ</B><BR/>OCR / RAG</TD></TR>
+</TABLE>>];
+core [shape=plain, label=<
+<TABLE BORDER="1" COLOR="#B47B2D" CELLBORDER="0" CELLSPACING="8" CELLPADDING="14" BGCOLOR="#FFF3DD">
+<TR><TD COLSPAN="3"><B>TẦNG 1 · HEADLESS OPEN-CORE</B></TD></TR>
+<TR><TD><B>Cửa ngõ / Danh tính</B><BR/>APISIX · Keycloak<BR/>OpenBao</TD><TD><B>Dữ liệu / Tệp</B><BR/>PostgreSQL · Hasura<BR/>SeaweedFS · ClamAV</TD><TD><B>Điều phối / Lịch sử</B><BR/>Kestra · Sự kiện bền vững<BR/>Parquet · DuckDB</TD></TR>
+</TABLE>>];
+cp [label="QUẢN LÝ CẤU HÌNH\nGit → Argo CD → Go Operator\nĐăng ký / nâng cấp / đối soát ứng dụng",fillcolor="#F1EAFB",color="#8C63AD"];
+ops [label="VẬN HÀNH XUYÊN SUỐT\nGiám sát · Log · Audit · Sao lưu · Phục hồi",fillcolor="#F1F5F9"];
+{rank=same;spaces;cp;}
+people -> apps [label="sử dụng qua cổng chung"];
+apps -> spaces [label="dùng các năng lực H-P-D-I"];
+spaces -> core [label="khai thác dịch vụ qua API có kiểm soát"];
+cp -> core [style=dashed,label="cấu hình các dịch vụ"];
+core -> ops [style=dotted,arrowhead=none,label="quan sát và bảo vệ"];
+}

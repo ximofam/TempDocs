@@ -1,0 +1,21 @@
+digraph DXOS {
+graph [fontname="Liberation Sans", fontsize=24, bgcolor="#ffffff", pad=0.35, nodesep=0.35, ranksep=0.65, labelloc=t, labeljust=l, splines=polyline];
+node [shape=box, style="rounded,filled", fillcolor="#EAF2FF", color="#4575AC", fontname="Liberation Sans", fontsize=15, margin="0.22,0.15", penwidth=1.3];
+edge [fontname="Liberation Sans", fontsize=11, color="#60738A", arrowsize=0.8];
+label="07  /  DỮ LIỆU TÁC NGHIỆP → LỊCH SỬ CÓ ĐỐI SOÁT";
+
+rankdir=TB;
+tx [label="Một giao dịch nghiệp vụ\nHồ sơ + Audit + Outbox",fillcolor="#E7F6F0"];
+hot [label="NÓNG · PostgreSQL\nĐang xử lý / cần cập nhật",shape=cylinder,fillcolor="#FFF3DD"];
+export [label="Kestra điều phối xuất\nChốt phiên bản → ghi tệp → đối soát"];
+lake [label="LẠNH · SeaweedFS / Parquet\nĐợt đã công bố + phiên bản nguồn",shape=cylinder,fillcolor="#FFF3DD"];
+bi [label="D · API báo cáo / DuckDB\nKiểm quyền + tập dữ liệu được phép\nKhông cộng trùng nóng / lạnh",fillcolor="#E7F6F0"];
+lin [label="Phả hệ\nChỉ số ↔ đợt xuất ↔ phép biến đổi\n↔ hồ sơ / phiên bản nguồn"];
+audit [label="Audit theo workspace\nChuỗi băm tuần tự + số thứ tự"];
+sign [label="OpenBao Transit\nKý checkpoint",fillcolor="#F1EAFB"];
+anchor [label="Kho checkpoint độc lập\nGiới hạn quyền sửa / lưu theo phiên bản",shape=cylinder,fillcolor="#F1EAFB"];
+verify [label="Kiểm chứng\nTính lại chuỗi → đối chiếu checkpoint\nBáo phạm vi đã neo và khoảng chưa neo"];
+tx -> hot;tx -> audit;hot -> export [label="hồ sơ đủ điều kiện"];export -> lake [label="đối soát đạt"];lake -> bi;hot -> bi [label="tác nghiệp",constraint=false];
+export -> lin;bi -> lin [label="truy nguồn"];audit -> sign -> anchor;anchor -> verify;audit -> verify;
+
+}

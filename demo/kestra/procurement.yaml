@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: Apache-2.0
+id: procurement-submitted
+namespace: dxos.demo
+tasks:
+  - id: create_inbox
+    type: io.kestra.plugin.core.http.Request
+    uri: http://api:8090/internal/events
+    method: POST
+    headers:
+      Authorization: "Bearer {{ secret('SERVICE_TOKEN') }}"
+    contentType: application/json
+    body: |
+      {
+        "event_id": "{{ trigger.body.event.data.new.event_id }}",
+        "event_type": "{{ trigger.body.event.data.new.event_type }}",
+        "workspace_id": "{{ trigger.body.event.data.new.workspace_id }}",
+        "request_id": "{{ trigger.body.event.data.new.request_id }}",
+        "version": {{ trigger.body.event.data.new.version }}
+      }
+    timeout: PT30S
+    options:
+      timeout:
+        readIdleTimeout: PT5S
+      retry:
+        type: constant
+        interval: PT1S
+        maxAttempts: 1
+    retry:
+      type: constant
+      interval: PT2S
+      maxAttempts: 3
+      warningOnRetry: false
+triggers:
+  - id: hasura_event
+    type: io.kestra.plugin.core.trigger.Webhook
+    key: "{{ secret('WEBHOOK_KEY') }}"

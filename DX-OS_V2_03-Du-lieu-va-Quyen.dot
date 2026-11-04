@@ -1,0 +1,22 @@
+digraph DXOS {
+graph [fontname="Liberation Sans", fontsize=24, bgcolor="#ffffff", pad=0.35, nodesep=0.35, ranksep=0.65, labelloc=t, labeljust=l, splines=polyline];
+node [shape=box, style="rounded,filled", fillcolor="#EAF2FF", color="#4575AC", fontname="Liberation Sans", fontsize=15, margin="0.22,0.15", penwidth=1.3];
+edge [fontname="Liberation Sans", fontsize=11, color="#60738A", arrowsize=0.8];
+label="03  /  CHIA SẺ CÔNG VIỆC — GIỮ HỒ SƠ RIÊNG";
+
+rankdir=TB;
+ws [label="Workspace + Thành viên + Quyền\nĐơn vị × Ứng dụng × Hành động",fillcolor="#F1EAFB"];
+wi [label="core.work_items\nID · workspace · tiêu đề · hạn\nngười phụ trách · ưu tiên",fillcolor="#E7F6F0"];
+pr [label="procurement.requests\nHồ sơ mua sắm\nchi phí · trạng thái · phiên bản"];
+ts [label="timesheet.entries\nGiờ công\nngười · ngày · giờ · trạng thái"];
+mt [label="maintenance.orders\nHồ sơ bảo trì\nthiết bị · kết quả · trạng thái"];
+items [label="procurement.request_items\nNhiều dòng vật tư"];
+dev [label="assets.devices\nThiết bị → số đo → cảnh báo"];
+shared [label="Từ điển thuộc tính + Hợp đồng chia sẻ\nĐịnh nghĩa / chủ sở hữu / phiên bản\nTương thích không tự cấp quyền",fillcolor="#FFF3DD"];
+evidence [label="Tệp · Vòng duyệt · Audit · Phả hệ\nLiên kết đúng workspace và phiên bản",fillcolor="#FFF3DD"];
+ws -> wi [label="1 : nhiều"];wi -> pr [label="1 : nhiều"];wi -> ts [label="1 : nhiều"];wi -> mt [label="1 : nhiều"];
+pr -> items [label="1 : nhiều"];mt -> dev [label="nhiều : 1"];
+shared -> wi [style=dashed,label="quản lý trường chung"];shared -> pr [style=dashed,label="cấp quyền rõ ràng"];
+pr -> evidence;ts -> evidence;mt -> evidence;
+
+}

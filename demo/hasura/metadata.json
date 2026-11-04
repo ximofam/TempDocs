@@ -1,0 +1,305 @@
+{
+  "version": 3,
+  "sources": [
+    {
+      "name": "default",
+      "kind": "postgres",
+      "configuration": {
+        "connection_info": {
+          "database_url": {
+            "from_env": "PG_DATABASE_URL"
+          },
+          "isolation_level": "read-committed",
+          "use_prepared_statements": true
+        }
+      },
+      "tables": [
+        {
+          "table": {
+            "schema": "core",
+            "name": "work_items"
+          },
+          "select_permissions": [
+            {
+              "role": "employee",
+              "permission": {
+                "columns": [
+                  "id",
+                  "workspace_id",
+                  "title",
+                  "created_by"
+                ],
+                "filter": {
+                  "workspace_id": {
+                    "_eq": "X-Hasura-Workspace-Id"
+                  }
+                },
+                "allow_aggregations": true
+              }
+            },
+            {
+              "role": "manager",
+              "permission": {
+                "columns": [
+                  "id",
+                  "workspace_id",
+                  "title",
+                  "created_by"
+                ],
+                "filter": {
+                  "workspace_id": {
+                    "_eq": "X-Hasura-Workspace-Id"
+                  }
+                },
+                "allow_aggregations": true
+              }
+            }
+          ],
+          "insert_permissions": [
+            {
+              "role": "employee",
+              "permission": {
+                "columns": [
+                  "id",
+                  "title"
+                ],
+                "check": {
+                  "_and": [
+                    {
+                      "workspace_id": {
+                        "_eq": "X-Hasura-Workspace-Id"
+                      }
+                    },
+                    {
+                      "created_by": {
+                        "_eq": "X-Hasura-User-Id"
+                      }
+                    }
+                  ]
+                },
+                "set": {
+                  "workspace_id": "x-hasura-workspace-id",
+                  "created_by": "x-hasura-user-id"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "table": {
+            "schema": "procurement",
+            "name": "requests"
+          },
+          "select_permissions": [
+            {
+              "role": "employee",
+              "permission": {
+                "columns": [
+                  "id",
+                  "workspace_id",
+                  "work_item_id",
+                  "created_by",
+                  "description",
+                  "amount",
+                  "status",
+                  "version"
+                ],
+                "filter": {
+                  "workspace_id": {
+                    "_eq": "X-Hasura-Workspace-Id"
+                  }
+                },
+                "allow_aggregations": true
+              }
+            },
+            {
+              "role": "manager",
+              "permission": {
+                "columns": [
+                  "id",
+                  "workspace_id",
+                  "work_item_id",
+                  "created_by",
+                  "description",
+                  "amount",
+                  "status",
+                  "version"
+                ],
+                "filter": {
+                  "workspace_id": {
+                    "_eq": "X-Hasura-Workspace-Id"
+                  }
+                },
+                "allow_aggregations": true
+              }
+            }
+          ],
+          "object_relationships": [
+            {
+              "name": "work_item",
+              "using": {
+                "foreign_key_constraint_on": [
+                  "workspace_id",
+                  "work_item_id"
+                ]
+              }
+            }
+          ],
+          "insert_permissions": [
+            {
+              "role": "employee",
+              "permission": {
+                "columns": [
+                  "id",
+                  "work_item_id",
+                  "description",
+                  "amount"
+                ],
+                "check": {
+                  "_and": [
+                    {
+                      "workspace_id": {
+                        "_eq": "X-Hasura-Workspace-Id"
+                      }
+                    },
+                    {
+                      "created_by": {
+                        "_eq": "X-Hasura-User-Id"
+                      }
+                    }
+                  ]
+                },
+                "set": {
+                  "workspace_id": "x-hasura-workspace-id",
+                  "created_by": "x-hasura-user-id"
+                }
+              }
+            }
+          ],
+          "update_permissions": [
+            {
+              "role": "employee",
+              "permission": {
+                "columns": [
+                  "description",
+                  "amount"
+                ],
+                "filter": {
+                  "_and": [
+                    {
+                      "_and": [
+                        {
+                          "workspace_id": {
+                            "_eq": "X-Hasura-Workspace-Id"
+                          }
+                        },
+                        {
+                          "created_by": {
+                            "_eq": "X-Hasura-User-Id"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "status": {
+                        "_eq": "DRAFT"
+                      }
+                    }
+                  ]
+                },
+                "check": {
+                  "_and": [
+                    {
+                      "_and": [
+                        {
+                          "workspace_id": {
+                            "_eq": "X-Hasura-Workspace-Id"
+                          }
+                        },
+                        {
+                          "created_by": {
+                            "_eq": "X-Hasura-User-Id"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "status": {
+                        "_eq": "DRAFT"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "table": {
+            "schema": "procurement",
+            "name": "approval_inbox"
+          },
+          "select_permissions": [
+            {
+              "role": "employee",
+              "permission": {
+                "columns": [
+                  "event_id",
+                  "workspace_id",
+                  "request_id",
+                  "version"
+                ],
+                "filter": {
+                  "workspace_id": {
+                    "_eq": "X-Hasura-Workspace-Id"
+                  }
+                },
+                "allow_aggregations": true
+              }
+            },
+            {
+              "role": "manager",
+              "permission": {
+                "columns": [
+                  "event_id",
+                  "workspace_id",
+                  "request_id",
+                  "version"
+                ],
+                "filter": {
+                  "workspace_id": {
+                    "_eq": "X-Hasura-Workspace-Id"
+                  }
+                },
+                "allow_aggregations": true
+              }
+            }
+          ]
+        },
+        {
+          "table": {
+            "schema": "core",
+            "name": "outbox"
+          },
+          "event_triggers": [
+            {
+              "name": "request_submitted",
+              "definition": {
+                "enable_manual": true,
+                "insert": {
+                  "columns": "*"
+                }
+              },
+              "retry_conf": {
+                "num_retries": 5,
+                "interval_sec": 5,
+                "timeout_sec": 30
+              },
+              "webhook_from_env": "KESTRA_WEBHOOK_URL"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

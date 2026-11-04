@@ -1,0 +1,24 @@
+digraph DXOS {
+graph [fontname="Liberation Sans", fontsize=24, bgcolor="#ffffff", pad=0.35, nodesep=0.35, ranksep=0.65, labelloc=t, labeljust=l, splines=polyline];
+node [shape=box, style="rounded,filled", fillcolor="#EAF2FF", color="#4575AC", fontname="Liberation Sans", fontsize=15, margin="0.22,0.15", penwidth=1.3];
+edge [fontname="Liberation Sans", fontsize=11, color="#60738A", arrowsize=0.8];
+label="05  /  BẢO TRÌ → MUA SẮM → GIỜ CÔNG → NGHIỆM THU";
+
+rankdir=TB;
+ot [label="Cảm biến / người báo sự cố\nXác thực nguồn · loại trùng",fillcolor="#FFF3DD"];
+work [label="Công việc + Hồ sơ bảo trì\nPhân công kỹ thuật viên"];
+need [label="Cần mua vật tư?",shape=diamond,fillcolor="#FFF3DD"];
+draft [label="Nháp mua sắm\nVật tư · chi phí · tệp đã quét sạch"];
+approve [label="Người có quyền duyệt\nĐúng hồ sơ / đúng phiên bản",fillcolor="#E7F6F0"];
+receive [label="Mua / nhận vật tư\nGhi nhận sẵn sàng"];
+reject [label="Trả sửa / Từ chối\nGhi lý do; quyết định bảo trì riêng",fillcolor="#FDECEA"];
+repair [label="Thực hiện bảo trì\nGhi kết quả và bằng chứng"];
+hours [label="Giờ công riêng\nGhi → kiểm tra tổng ngày → duyệt"];
+close [label="Nghiệm thu → đóng hồ sơ\nKiểm tra các điều kiện liên quan",fillcolor="#E7F6F0"];
+history [label="Lịch sử + Báo cáo\nTruy ngược được nguồn",fillcolor="#FFF3DD"];
+ot -> work -> need;need -> draft [label="Có"];need -> repair [label="Không"];
+draft -> approve [label="gửi duyệt"];approve -> receive [label="duyệt"];approve -> reject [label="không duyệt"];reject -> draft [label="sửa + phiên bản mới",style=dashed];
+receive -> repair -> hours -> close -> history;
+close -> repair [label="chưa đạt",style=dashed,constraint=false];
+
+}

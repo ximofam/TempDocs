@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1850" viewBox="0 0 1600 1850" role="img" aria-labelledby="title desc">
+<title id="title">DX-OS — Luồng nghiệp vụ bảo trì liên thông</title><desc id="desc">Luồng từ cảnh báo thiết bị, mua vật tư nếu cần, phê duyệt, bảo trì, giờ công, đóng hồ sơ tới báo cáo lịch sử.</desc>
+<defs>
+ <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#52677c"/></marker>
+ <marker id="dasharrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#8a63b0"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#f6f8fc"/>
+<g font-family="Liberation Sans, DejaVu Sans, sans-serif">
+<text x="40" y="48" font-size="19" fill="#147d72" font-weight="700" text-anchor="start">DX-OS / NGHIỆP VỤ LIÊN THÔNG</text>
+<text x="40" y="95" font-size="35" fill="#132b43" font-weight="700" text-anchor="start">Từ cảnh báo thiết bị đến báo cáo quản trị</text>
+<text x="40" y="132" font-size="21" fill="#52677c" font-weight="400" text-anchor="start">Bảo trì + mua sắm + giờ công · chung công việc, độc lập trạng thái từng hồ sơ</text>
+<rect x="40" y="172" width="380" height="1558" rx="16" fill="#edf4ff" stroke="#ccdaeb" stroke-width="1.5"/>
+<rect x="450" y="172" width="670" height="1558" rx="16" fill="#ffffff" stroke="#ccdaeb" stroke-width="1.5"/>
+<rect x="1150" y="172" width="410" height="1558" rx="16" fill="#edf9f6" stroke="#c6dfd8" stroke-width="1.5"/>
+<text x="65" y="209" font-size="19" fill="#2167a4" font-weight="700" text-anchor="start">TÁC NHÂN &amp; PHẢN HỒI</text>
+<text x="475" y="209" font-size="19" fill="#2167a4" font-weight="700" text-anchor="start">LUỒNG NGHIỆP VỤ CHÍNH</text>
+<text x="1175" y="209" font-size="19" fill="#147d72" font-weight="700" text-anchor="start">KIỂM SOÁT XUYÊN SUỐT</text>
+<rect x="65" y="245" width="330" height="115" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="65" y="262" width="5" height="81" rx="2" fill="#2167a4"/>
+<text x="85" y="279" font-size="22" fill="#2167a4" font-weight="700" text-anchor="start">Cảm biến / OT</text>
+<text x="85" y="309" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Phát cảnh báo vượt ngưỡng</text>
+<text x="85" y="336" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Kèm thiết bị &amp; thời điểm</text>
+<rect x="510" y="245" width="550" height="115" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="510" y="262" width="5" height="81" rx="2" fill="#2167a4"/>
+<text x="530" y="279" font-size="22" fill="#2167a4" font-weight="700" text-anchor="start">1 · Xác thực và cập nhật thiết bị</text>
+<text x="530" y="309" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Kiểm tra workspace, thời điểm và sự kiện trùng</text>
+<text x="530" y="336" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Lưu trạng thái thiết bị và nguồn cảnh báo</text>
+<path d="M 395 302 L 510 302" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 785 360 L 785 410" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="510" y="410" width="550" height="115" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="510" y="427" width="5" height="81" rx="2" fill="#2167a4"/>
+<text x="530" y="444" font-size="22" fill="#2167a4" font-weight="700" text-anchor="start">2 · Khởi tạo công việc bảo trì</text>
+<text x="530" y="474" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Một work_item + một hồ sơ maintenance</text>
+<text x="530" y="501" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Gán người phụ trách; liên kết cảnh báo gốc</text>
+<path d="M 785 525 L 785 560" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 785 560.0 L 965.0 625 L 785 690.0 L 605.0 625 Z" fill="#fff5dd" stroke="#d6a34a" stroke-width="2"/>
+<text x="785" y="618" font-size="21" fill="#875512" font-weight="700" text-anchor="middle">Cần mua</text>
+<text x="785" y="646" font-size="21" fill="#875512" font-weight="700" text-anchor="middle">vật tư?</text>
+<path d="M 785 690 L 785 745" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="805" y="721" font-size="18" fill="#52677c" font-weight="600" text-anchor="start">Có</text>
+<path d="M 965 625 L 1090 625 L 1090 1140 L 1060 1140" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="1000" y="609" font-size="18" fill="#52677c" font-weight="600" text-anchor="start">Không</text>
+<rect x="510" y="745" width="550" height="115" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="510" y="762" width="5" height="81" rx="2" fill="#2167a4"/>
+<text x="530" y="779" font-size="22" fill="#2167a4" font-weight="700" text-anchor="start">3 · Lập và gửi yêu cầu mua sắm</text>
+<text x="530" y="809" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Khai báo vật tư, chi phí, báo giá đã quét sạch</text>
+<text x="530" y="836" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Lưu phiên bản; chuyển sang chờ phê duyệt</text>
+<path d="M 785 860 L 785 910" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 785 910.0 L 965.0 975 L 785 1040.0 L 605.0 975 Z" fill="#fff5dd" stroke="#d6a34a" stroke-width="2"/>
+<text x="785" y="968" font-size="21" fill="#875512" font-weight="700" text-anchor="middle">Quản lý</text>
+<text x="785" y="996" font-size="21" fill="#875512" font-weight="700" text-anchor="middle">phê duyệt?</text>
+<path d="M 785 1040 L 785 1085" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="805" y="1071" font-size="18" fill="#52677c" font-weight="600" text-anchor="start">Duyệt đúng phiên bản</text>
+<rect x="510" y="1085" width="550" height="115" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="510" y="1102" width="5" height="81" rx="2" fill="#2167a4"/>
+<text x="530" y="1119" font-size="22" fill="#2167a4" font-weight="700" text-anchor="start">4 · Thực hiện bảo trì</text>
+<text x="530" y="1149" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Nếu có mua sắm: vật tư phải sẵn sàng</text>
+<text x="530" y="1176" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Ghi kết quả thực hiện và hồ sơ liên quan</text>
+<rect x="65" y="917" width="330" height="115" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="65" y="934" width="5" height="81" rx="2" fill="#b87516"/>
+<text x="85" y="951" font-size="22" fill="#b87516" font-weight="700" text-anchor="start">Trả hồ sơ để sửa</text>
+<text x="85" y="981" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Nêu lý do; sửa nội dung</text>
+<text x="85" y="1008" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Gửi lại với phiên bản mới</text>
+<path d="M 605 975 L 395 975" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="450" y="959" font-size="18" fill="#52677c" font-weight="600" text-anchor="start">Trả sửa</text>
+<path d="M 230 917 L 230 802 L 510 802" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="65" y="1076" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Nếu hủy: đóng nhánh mua sắm</text>
+<text x="65" y="1104" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">và xử lý bảo trì theo quyết định</text>
+<text x="65" y="1132" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">của người có thẩm quyền.</text>
+<path d="M 785 1200 L 785 1245" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="510" y="1245" width="550" height="115" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="510" y="1262" width="5" height="81" rx="2" fill="#2167a4"/>
+<text x="530" y="1279" font-size="22" fill="#2167a4" font-weight="700" text-anchor="start">5 · Ghi và duyệt giờ công</text>
+<text x="530" y="1309" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Theo nhân viên / ngày / công việc</text>
+<text x="530" y="1336" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Kiểm tra tổng giờ; duyệt độc lập với mua sắm</text>
+<path d="M 785 1360 L 785 1405" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="510" y="1405" width="550" height="115" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="510" y="1422" width="5" height="81" rx="2" fill="#2167a4"/>
+<text x="530" y="1439" font-size="22" fill="#2167a4" font-weight="700" text-anchor="start">6 · Nghiệm thu và đóng hồ sơ</text>
+<text x="530" y="1469" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Kiểm tra các hồ sơ liên quan đã hoàn tất</text>
+<text x="530" y="1496" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Ghi audit và chốt phiên bản dữ liệu</text>
+<path d="M 785 1520 L 785 1565" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="510" y="1565" width="550" height="115" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="510" y="1582" width="5" height="81" rx="2" fill="#147d72"/>
+<text x="530" y="1599" font-size="22" fill="#147d72" font-weight="700" text-anchor="start">7 · Lưu lịch sử và lập báo cáo</text>
+<text x="530" y="1629" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Xuất Parquet → đối soát → công bố dữ liệu</text>
+<text x="530" y="1656" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">BI truy ngược hồ sơ nguồn qua phả hệ</text>
+<rect x="1175" y="245" width="360" height="145" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="1175" y="262" width="5" height="111" rx="2" fill="#147d72"/>
+<text x="1195" y="279" font-size="22" fill="#147d72" font-weight="700" text-anchor="start">Danh tính &amp; quyền</text>
+<text x="1195" y="309" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Workspace + ứng dụng</text>
+<text x="1195" y="336" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">+ hành động của người gọi</text>
+<text x="1195" y="363" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Không tin ID do client tự đổi</text>
+<rect x="1175" y="440" width="360" height="145" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="1175" y="457" width="5" height="111" rx="2" fill="#147d72"/>
+<text x="1195" y="474" font-size="22" fill="#147d72" font-weight="700" text-anchor="start">Giao dịch &amp; phiên bản</text>
+<text x="1195" y="504" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Lệnh submit / approve / reject</text>
+<text x="1195" y="531" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">kiểm tra quyền và trạng thái.</text>
+<text x="1195" y="558" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Kết quả cũ bị từ chối.</text>
+<rect x="1175" y="685" width="360" height="145" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="1175" y="702" width="5" height="111" rx="2" fill="#147d72"/>
+<text x="1195" y="719" font-size="22" fill="#147d72" font-weight="700" text-anchor="start">Hồ sơ &amp; kiểm dịch</text>
+<text x="1195" y="749" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Upload → cách ly → quét.</text>
+<text x="1195" y="776" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Tệp sạch mới được dùng</text>
+<text x="1195" y="803" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">cho hồ sơ và OCR.</text>
+<rect x="1175" y="885" width="360" height="145" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="1175" y="902" width="5" height="111" rx="2" fill="#147d72"/>
+<text x="1195" y="919" font-size="22" fill="#147d72" font-weight="700" text-anchor="start">AI hỗ trợ kiểm tra</text>
+<text x="1195" y="949" font-size="16" fill="#52677c" font-weight="400" text-anchor="start">OCR / RAG theo quyền.</text>
+<text x="1195" y="976" font-size="16" fill="#52677c" font-weight="400" text-anchor="start">Trích dẫn nguồn quy chế.</text>
+<text x="1195" y="1003" font-size="16" fill="#52677c" font-weight="400" text-anchor="start">Quyết định duyệt có người chịu trách nhiệm.</text>
+<rect x="1175" y="1085" width="360" height="145" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="1175" y="1102" width="5" height="111" rx="2" fill="#147d72"/>
+<text x="1195" y="1119" font-size="22" fill="#147d72" font-weight="700" text-anchor="start">Kestra điều phối</text>
+<text x="1195" y="1149" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Sự kiện bền vững, có ID.</text>
+<text x="1195" y="1176" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Thử lại không gây tác động trùng.</text>
+<text x="1195" y="1203" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Lỗi được theo dõi và xử lý.</text>
+<rect x="1175" y="1285" width="360" height="145" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="1175" y="1302" width="5" height="111" rx="2" fill="#147d72"/>
+<text x="1195" y="1319" font-size="22" fill="#147d72" font-weight="700" text-anchor="start">Audit &amp; checkpoint</text>
+<text x="1195" y="1349" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Ghi dấu các bước quan trọng.</text>
+<text x="1195" y="1376" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Bảo vệ checkpoint độc lập.</text>
+<text x="1195" y="1403" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Đối soát phát hiện sửa đổi.</text>
+<rect x="1175" y="1485" width="360" height="145" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="1175" y="1502" width="5" height="111" rx="2" fill="#147d72"/>
+<text x="1195" y="1519" font-size="22" fill="#147d72" font-weight="700" text-anchor="start">Dữ liệu báo cáo</text>
+<text x="1195" y="1549" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Theo workspace và phiên bản.</text>
+<text x="1195" y="1576" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Không tính trùng nóng / lạnh.</text>
+<text x="1195" y="1603" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Giữ liên kết về dữ liệu gốc.</text>
+<rect x="65" y="415" width="330" height="145" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="65" y="432" width="5" height="111" rx="2" fill="#2167a4"/>
+<text x="85" y="449" font-size="22" fill="#2167a4" font-weight="700" text-anchor="start">Vai trò tham gia</text>
+<text x="85" y="479" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Kỹ thuật viên bảo trì</text>
+<text x="85" y="506" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Nhân viên mua sắm</text>
+<text x="85" y="533" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Người duyệt / quản lý</text>
+<rect x="65" y="1245" width="330" height="172" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="65" y="1262" width="5" height="138" rx="2" fill="#2167a4"/>
+<text x="85" y="1279" font-size="22" fill="#2167a4" font-weight="700" text-anchor="start">Trạng thái độc lập</text>
+<text x="85" y="1309" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Công việc chung</text>
+<text x="85" y="1336" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Hồ sơ mua sắm</text>
+<text x="85" y="1363" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Lệnh bảo trì</text>
+<text x="85" y="1390" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Bản ghi giờ công</text>
+<text x="40" y="1770" font-size="20" fill="#132b43" font-weight="600" text-anchor="start">Các API lệnh kiểm tra quyền và phiên bản trước khi ghi kết quả; Kestra điều phối các bước và thử lại.</text>
+<text x="40" y="1805" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Sơ đồ nghiệp vụ đề xuất. Các vòng trao đổi chi tiết, mua hàng và nhận vật tư được gom trong bước 4.</text>
+</g></svg>

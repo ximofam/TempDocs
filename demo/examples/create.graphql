@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: Apache-2.0
+mutation TaoBanNhap {
+  insert_procurement_requests_one(object: {
+    work_item_id: "10000000-0000-0000-0000-000000000001"
+    description: "Mua vòng bi thay thế"
+    amount: 500000
+  }) { id description status version workspace_id created_by }
+}

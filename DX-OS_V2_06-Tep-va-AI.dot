@@ -1,0 +1,22 @@
+digraph DXOS {
+graph [fontname="Liberation Sans", fontsize=24, bgcolor="#ffffff", pad=0.35, nodesep=0.35, ranksep=0.65, labelloc=t, labeljust=l, splines=polyline];
+node [shape=box, style="rounded,filled", fillcolor="#EAF2FF", color="#4575AC", fontname="Liberation Sans", fontsize=15, margin="0.22,0.15", penwidth=1.3];
+edge [fontname="Liberation Sans", fontsize=11, color="#60738A", arrowsize=0.8];
+label="06  /  TỪ TỆP AN TOÀN ĐẾN TRỢ LÝ CÓ NGUỒN";
+
+rankdir=TB;
+user [label="Người dùng / ứng dụng\nQua Gateway và kiểm tra quyền",fillcolor="#E7F6F0"];
+file [label="Dịch vụ tệp\nGắn chủ sở hữu / hồ sơ / phiên bản"];
+quar [label="Vùng cách ly\nChưa được tải sử dụng",shape=cylinder,fillcolor="#FFF3DD"];
+scan [label="ClamAV\nQuét đúng nội dung / checksum",fillcolor="#FFF3DD"];
+blocked [label="Nhiễm / lỗi / chưa rõ\nGiữ cách ly",fillcolor="#FDECEA"];
+clean [label="Tệp sạch\nĐọc theo quyền hồ sơ",shape=cylinder,fillcolor="#FFF3DD"];
+ocr [label="AI Engine / OCR\nTrích xuất → kiểm tra schema\nNgười dùng xác nhận"];
+index [label="Nạp tri thức có quyền\nĐoạn văn + nguồn + phiên bản + ACL"];
+vector [label="PostgreSQL / pgvector\nLọc workspace + ứng dụng + quyền tài liệu",shape=cylinder,fillcolor="#FFF3DD"];
+rag [label="RAG\nTruy xuất được phép → LLM\nTrả lời + nguồn / không đủ căn cứ"];
+review [label="Người dùng kiểm tra kết quả\nAI không tự duyệt / ghi hồ sơ",fillcolor="#E7F6F0"];
+user -> file -> quar -> scan;scan -> blocked [label="không sạch"];scan -> clean [label="sạch"];
+clean -> ocr;clean -> index -> vector;user -> rag [label="câu hỏi",constraint=false];vector -> rag [label="ngữ cảnh hợp lệ"];ocr -> review;rag -> review;
+
+}

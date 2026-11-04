@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: Apache-2.0
+query DanhSachHoSo {
+  procurement_requests(order_by: {id: asc}) {
+    id description amount status version workspace_id
+    work_item { title }
+  }
+}

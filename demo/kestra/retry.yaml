@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: Apache-2.0
+id: retry-http
+namespace: dxos.demo
+inputs:
+  - id: run_id
+    type: STRING
+  - id: failures
+    type: INT
+    defaults: 2
+tasks:
+  - id: call_go
+    type: io.kestra.plugin.core.http.Request
+    uri: "http://api:8090/internal/practice/{{ inputs.run_id }}?failures={{ inputs.failures }}"
+    method: POST
+    headers:
+      Authorization: "Bearer {{ secret('SERVICE_TOKEN') }}"
+    timeout: PT30S
+    options:
+      timeout:
+        readIdleTimeout: PT5S
+      retry:
+        type: constant
+        interval: PT1S
+        maxAttempts: 1
+    retry:
+      type: constant
+      interval: PT2S
+      maxAttempts: 3
+      warningOnRetry: false
+  - id: show_result
+    type: io.kestra.plugin.core.log.Log
+    message: "Go response: {{ outputs.call_go.body }}"

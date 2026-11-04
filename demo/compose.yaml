@@ -1,0 +1,117 @@
+# SPDX-License-Identifier: Apache-2.0
+name: dxos-learning
+x-runtime-env: &runtime-env
+  JWT_KEY: ${JWT_KEY:?copy .env.example to .env}
+  SERVICE_TOKEN: ${SERVICE_TOKEN:?}
+  DATABASE_URL: postgres://api_runtime:demo-api@postgres:5432/dxos?sslmode=disable
+services:
+  postgres:
+    image: postgres:17.6-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: demo-postgres
+      POSTGRES_DB: dxos
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+      - ./db/001-init.sql:/docker-entrypoint-initdb.d/001-init.sql:ro
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -h 127.0.0.1 -U postgres -d dxos']
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  hasura:
+    restart: unless-stopped
+    image: hasura/graphql-engine:v2.51.3
+    ports: ['127.0.0.1:${HASURA_PORT:-8080}:8080']
+    environment:
+      HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://hasura_meta:demo-meta@postgres:5432/hasura_metadata
+      PG_DATABASE_URL: postgres://hasura_runtime:demo-hasura@postgres:5432/dxos
+      HASURA_GRAPHQL_ADMIN_SECRET: ${HASURA_ADMIN_SECRET}
+      HASURA_GRAPHQL_JWT_SECRET: '{"type":"HS256","key":"${JWT_KEY}","issuer":"dxos-demo"}'
+      HASURA_GRAPHQL_ENABLE_CONSOLE: 'true'
+      HASURA_GRAPHQL_ENABLE_TELEMETRY: 'false'
+      HASURA_GRAPHQL_DEV_MODE: 'true'
+      HASURA_GRAPHQL_UNAUTHORIZED_ROLE: anonymous
+      KESTRA_WEBHOOK_URL: http://kestra:8080/api/v1/main/executions/webhook/dxos.demo/procurement-submitted/${WEBHOOK_KEY}
+      GHCRTS: '-N2'
+    depends_on:
+      postgres: {condition: service_healthy}
+  kestra:
+    image: kestra/kestra:v2.0.8
+    user: 'root'
+    restart: unless-stopped
+    entrypoint: [/bin/sh, -ec]
+    command:
+      - |
+        export SECRET_SERVICE_TOKEN="$$(printf '%s' "$$SERVICE_TOKEN" | base64 | tr -d '\n')"
+        export SECRET_WEBHOOK_KEY="$$(printf '%s' "$$WEBHOOK_KEY" | base64 | tr -d '\n')"
+        exec docker-entrypoint.sh server standalone
+    ports: ['127.0.0.1:${KESTRA_PORT:-8082}:8080']
+    volumes: [kestra-data:/app/storage]
+    environment:
+      JAVA_OPTS: '-Xms256m -Xmx1024m'
+      SERVICE_TOKEN: ${SERVICE_TOKEN}
+      WEBHOOK_KEY: ${WEBHOOK_KEY}
+      KESTRA_CONFIGURATION: |
+        datasources:
+          postgres:
+            url: jdbc:postgresql://postgres:5432/kestra
+            driverClassName: org.postgresql.Driver
+            username: kestra
+            password: demo-kestra
+        kestra:
+          server:
+            basic-auth:
+              username: ${KESTRA_USER}
+              password: ${KESTRA_PASSWORD}
+          repository:
+            type: postgres
+          queue:
+            type: postgres
+          storage:
+            type: local
+            local:
+              base-path: /app/storage
+          tasks:
+            tmp-dir:
+              path: /tmp/kestra
+          url: http://localhost:${KESTRA_PORT:-8082}/
+    depends_on:
+      postgres: {condition: service_healthy}
+  api:
+    build: .
+    image: dxos-learning-go:local
+    entrypoint: [/app/api]
+    environment: *runtime-env
+    ports: ['127.0.0.1:${API_PORT:-8090}:8090']
+    depends_on:
+      postgres: {condition: service_healthy}
+  demo:
+    build: .
+    image: dxos-learning-go:local
+    profiles: [tools]
+    environment:
+      <<: *runtime-env
+      KESTRA_USER: ${KESTRA_USER:?}
+      KESTRA_PASSWORD: ${KESTRA_PASSWORD:?}
+      HASURA_ADMIN_SECRET: ${HASURA_ADMIN_SECRET:?}
+      WEBHOOK_KEY: ${WEBHOOK_KEY:?}
+      HASURA_URL: http://hasura:8080
+      KESTRA_URL: http://kestra:8080
+      API_URL: http://api:8090
+      KESTRA_WEBHOOK_URL: http://kestra:8080/api/v1/main/executions/webhook/dxos.demo/procurement-submitted/${WEBHOOK_KEY}
+    volumes:
+      - ./hasura:/app/hasura:ro
+      - ./kestra:/app/kestra:ro
+      - ./examples:/app/examples:ro
+  test:
+    build: {context: ., target: test}
+    profiles: [tools]
+    environment:
+      TEST_DATABASE_URL: postgres://postgres:demo-postgres@postgres:5432/dxos?sslmode=disable
+      GOCACHE: /tmp/go-cache
+    depends_on:
+      postgres: {condition: service_healthy}
+volumes:
+  pg-data:
+  kestra-data:

@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1420" viewBox="0 0 1800 1420" role="img" aria-labelledby="title desc">
+<title id="title">DX-OS — Kiến trúc hệ thống cải tiến</title><desc id="desc">Kiến trúc logic ba tầng theo phương án giữ Hasura, tách GitOps, dữ liệu chung và dữ liệu nghiệp vụ.</desc>
+<defs>
+ <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#52677c"/></marker>
+ <marker id="dasharrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#8a63b0"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#f6f8fc"/>
+<g font-family="Liberation Sans, DejaVu Sans, sans-serif">
+<text x="42" y="49" font-size="19" fill="#2167a4" font-weight="700" text-anchor="start">DX-OS / OPEN-CORE</text>
+<text x="42" y="96" font-size="37" fill="#132b43" font-weight="700" text-anchor="start">Kiến trúc hệ thống cải tiến</text>
+<text x="42" y="130" font-size="21" fill="#52677c" font-weight="400" text-anchor="start">Phương án đề xuất: Hasura · dữ liệu nghiệp vụ độc lập · workflow có thể phục hồi</text>
+<rect x="1460" y="48" width="300" height="42" rx="21" fill="#e8eefb" stroke="#d4def0" stroke-width="1.5"/>
+<text x="1610" y="76" font-size="18" fill="#2167a4" font-weight="700" text-anchor="middle">THIẾT KẾ ĐỀ XUẤT</text>
+<rect x="40" y="165" width="1290" height="190" rx="16" fill="#edf4ff" stroke="#91b4df" stroke-width="1.5"/>
+<text x="64" y="198" font-size="21" fill="#2167a4" font-weight="700" text-anchor="start">TẦNG 3 · ỨNG DỤNG NGHIỆP VỤ</text>
+<text x="64" y="226" font-size="17" fill="#52677c" font-weight="400" text-anchor="start">Mỗi ứng dụng sở hữu hồ sơ, quy tắc và API lệnh của mình.</text>
+<rect x="65" y="242" width="390" height="87" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="65" y="259" width="5" height="53" rx="2" fill="#2167a4"/>
+<text x="85" y="276" font-size="22" fill="#2167a4" font-weight="700" text-anchor="start">Mua sắm</text>
+<text x="85" y="306" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Hồ sơ · dòng hàng · phê duyệt</text>
+<rect x="480" y="242" width="390" height="87" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="480" y="259" width="5" height="53" rx="2" fill="#2167a4"/>
+<text x="500" y="276" font-size="22" fill="#2167a4" font-weight="700" text-anchor="start">Giờ công</text>
+<text x="500" y="306" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Theo người/ngày · xét duyệt riêng</text>
+<rect x="895" y="242" width="410" height="87" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="895" y="259" width="5" height="53" rx="2" fill="#2167a4"/>
+<text x="915" y="276" font-size="22" fill="#2167a4" font-weight="700" text-anchor="start">Bảo trì</text>
+<text x="915" y="306" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Thiết bị · lệnh bảo trì · nghiệm thu</text>
+<path d="M 685 355 L 685 395" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="710" y="381" font-size="18" fill="#52677c" font-weight="600" text-anchor="start">Sử dụng năng lực chung và dịch vụ lõi</text>
+<rect x="40" y="395" width="1290" height="240" rx="16" fill="#edf9f6" stroke="#8ac3b5" stroke-width="1.5"/>
+<text x="64" y="428" font-size="21" fill="#147d72" font-weight="700" text-anchor="start">TẦNG 2 · KHÔNG GIAN NĂNG LỰC H–P–D–I</text>
+<text x="64" y="456" font-size="17" fill="#52677c" font-weight="400" text-anchor="start">Một workspace thống nhất; mọi chức năng thực thi theo danh tính và quyền.</text>
+<rect x="65" y="472" width="1240" height="65" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="65" y="489" width="5" height="31" rx="2" fill="#147d72"/>
+<text x="85" y="506" font-size="23" fill="#147d72" font-weight="700" text-anchor="start">Workspace Portal · [H] Công việc / lịch  ·  [P] Hộp duyệt  ·  [D] Báo cáo  ·  [I] Trợ lý</text>
+<rect x="65" y="555" width="390" height="58" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="65" y="572" width="5" height="24" rx="2" fill="#147d72"/>
+<text x="85" y="589" font-size="21" fill="#147d72" font-weight="700" text-anchor="start">AI / OCR / RAG theo quyền</text>
+<rect x="480" y="555" width="390" height="58" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="480" y="572" width="5" height="24" rx="2" fill="#147d72"/>
+<text x="500" y="589" font-size="21" fill="#147d72" font-weight="700" text-anchor="start">BI / DuckDB &amp; truy vết nguồn</text>
+<rect x="895" y="555" width="410" height="58" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="895" y="572" width="5" height="24" rx="2" fill="#147d72"/>
+<text x="915" y="589" font-size="21" fill="#147d72" font-weight="700" text-anchor="start">Tiếp nhận OT &amp; trạng thái thiết bị</text>
+<rect x="40" y="680" width="1290" height="640" rx="16" fill="#ffffff" stroke="#a9bbcc" stroke-width="1.5"/>
+<text x="64" y="713" font-size="21" fill="#2167a4" font-weight="700" text-anchor="start">TẦNG 1 · HEADLESS OPEN-CORE PAAS</text>
+<text x="64" y="741" font-size="17" fill="#52677c" font-weight="400" text-anchor="start">Dịch vụ kỹ thuật dùng chung; không cung cấp UI nghiệp vụ cho người dùng cuối.</text>
+<path d="M 685 635 L 685 680" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="710" y="659" font-size="18" fill="#52677c" font-weight="600" text-anchor="start">HTTPS / WSS · JWT · danh tính dịch vụ</text>
+<rect x="65" y="757" width="1240" height="70" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="65" y="774" width="5" height="36" rx="2" fill="#2167a4"/>
+<text x="85" y="791" font-size="24" fill="#2167a4" font-weight="700" text-anchor="start">Apache APISIX · Gateway / xác thực biên / định tuyến / giới hạn truy cập</text>
+<text x="85" y="810" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Các tuyến phục vụ CRUD, API lệnh của ứng dụng, tệp, AI, BI và dữ liệu thiết bị.</text>
+<path d="M 185 827 L 185 872" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 480 827 L 480 872" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 805 827 L 805 872" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 1145 827 L 1145 872" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="65" y="872" width="240" height="114" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="65" y="889" width="5" height="80" rx="2" fill="#2167a4"/>
+<text x="85" y="906" font-size="22" fill="#2167a4" font-weight="700" text-anchor="start">Keycloak</text>
+<text x="85" y="936" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">SSO / OIDC / MFA</text>
+<text x="85" y="963" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Danh tính &amp; vai trò</text>
+<rect x="330" y="872" width="300" height="114" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="330" y="889" width="5" height="80" rx="2" fill="#2167a4"/>
+<text x="350" y="906" font-size="22" fill="#2167a4" font-weight="700" text-anchor="start">Hasura</text>
+<text x="350" y="936" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Quyền dòng/cột tại API</text>
+<text x="350" y="963" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">CRUD · WS · Event Triggers</text>
+<rect x="655" y="872" width="300" height="114" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="655" y="889" width="5" height="80" rx="2" fill="#2167a4"/>
+<text x="675" y="906" font-size="22" fill="#2167a4" font-weight="700" text-anchor="start">Kestra</text>
+<text x="675" y="936" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Điều phối &amp; thử lại</text>
+<text x="675" y="963" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Chống tác động trùng</text>
+<rect x="980" y="872" width="325" height="114" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="980" y="889" width="5" height="80" rx="2" fill="#2167a4"/>
+<text x="1000" y="906" font-size="22" fill="#2167a4" font-weight="700" text-anchor="start">Tệp + ClamAV</text>
+<text x="1000" y="936" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Upload → cách ly → quét</text>
+<text x="1000" y="963" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Chỉ dùng tệp sạch</text>
+<path d="M 630 930 L 655 930" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 480 986 L 480 1058" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 805 986 L 805 1022 L 690 1022 L 690 1058" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="825" y="1029" font-size="18" fill="#52677c" font-weight="600" text-anchor="start">Lệnh đã kiểm quyền</text>
+<path d="M 1145 986 L 1145 1058" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="65" y="1058" width="650" height="146" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="65" y="1075" width="5" height="112" rx="2" fill="#2167a4"/>
+<text x="85" y="1092" font-size="22" fill="#2167a4" font-weight="700" text-anchor="start">PostgreSQL · dữ liệu nóng</text>
+<text x="85" y="1122" font-size="21" fill="#52677c" font-weight="400" text-anchor="start">core.work_items + các bảng nghiệp vụ riêng</text>
+<text x="85" y="1149" font-size="21" fill="#52677c" font-weight="400" text-anchor="start">Audit · sự kiện bền vững · phả hệ · pgvector</text>
+<text x="85" y="1176" font-size="21" fill="#52677c" font-weight="400" text-anchor="start">Ràng buộc + giao dịch + phiên bản hồ sơ</text>
+<rect x="750" y="1058" width="555" height="146" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="750" y="1075" width="5" height="112" rx="2" fill="#147d72"/>
+<text x="770" y="1092" font-size="22" fill="#147d72" font-weight="700" text-anchor="start">SeaweedFS / S3 · tệp &amp; lịch sử</text>
+<text x="770" y="1122" font-size="21" fill="#52677c" font-weight="400" text-anchor="start">Tệp cách ly / tệp sạch tách quyền</text>
+<text x="770" y="1149" font-size="21" fill="#52677c" font-weight="400" text-anchor="start">Parquet theo phiên bản và đợt xuất</text>
+<text x="770" y="1176" font-size="21" fill="#52677c" font-weight="400" text-anchor="start">BI / DuckDB truy vấn theo workspace</text>
+<path d="M 715 1136 L 750 1136" fill="none" stroke="#52677c" stroke-width="2.4" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="65" y="1242" font-size="21" fill="#132b43" font-weight="600" text-anchor="start">Đóng hồ sơ → xuất lịch sử có phiên bản → đối soát → công bố cho báo cáo.</text>
+<text x="65" y="1278" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">API lệnh thuộc ứng dụng Tầng 3; gateway chỉ định tuyến. Trạng thái phê duyệt không mở cho CRUD tùy ý.</text>
+<rect x="1360" y="165" width="400" height="615" rx="16" fill="#f6f0fb" stroke="#b89acb" stroke-width="1.5"/>
+<text x="1384" y="198" font-size="21" fill="#79509b" font-weight="700" text-anchor="start">CONTROL PLANE · GITOPS</text>
+<text x="1384" y="226" font-size="17" fill="#52677c" font-weight="400" text-anchor="start">Tách khỏi đường xử lý giao dịch.</text>
+<rect x="1385" y="252" width="350" height="86" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="1385" y="269" width="5" height="52" rx="2" fill="#79509b"/>
+<text x="1405" y="286" font-size="22" fill="#79509b" font-weight="700" text-anchor="start">Git · manifest ứng dụng</text>
+<text x="1405" y="316" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Nguồn cấu hình chuẩn</text>
+<path d="M 1560 338 L 1560 368" fill="none" stroke="#8a63b0" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="8 7" marker-end="url(#dasharrow)"/>
+<rect x="1385" y="368" width="350" height="86" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="1385" y="385" width="5" height="52" rx="2" fill="#79509b"/>
+<text x="1405" y="402" font-size="22" fill="#79509b" font-weight="700" text-anchor="start">ArgoCD</text>
+<text x="1405" y="432" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Đồng bộ hạ tầng và CR</text>
+<path d="M 1560 454 L 1560 484" fill="none" stroke="#8a63b0" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="8 7" marker-end="url(#dasharrow)"/>
+<rect x="1385" y="484" width="350" height="140" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="1385" y="501" width="5" height="106" rx="2" fill="#79509b"/>
+<text x="1405" y="518" font-size="22" fill="#79509b" font-weight="700" text-anchor="start">Go Operator</text>
+<text x="1405" y="548" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Plan / apply / reconcile</text>
+<text x="1405" y="575" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Pending → Applying</text>
+<text x="1405" y="602" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Ready hoặc Failed</text>
+<text x="1385" y="663" font-size="20" fill="#52677c" font-weight="400" text-anchor="start">Cấu hình: định danh, schema,</text>
+<text x="1385" y="692" font-size="20" fill="#52677c" font-weight="400" text-anchor="start">quyền Hasura, flow và route.</text>
+<text x="1385" y="736" font-size="18" fill="#79509b" font-weight="600" text-anchor="start">Sửa cả quyền thiếu và quyền thừa.</text>
+<path d="M 1385 586 L 1345 586 L 1345 718 L 1330 718" fill="none" stroke="#8a63b0" stroke-width="2.4" stroke-linejoin="round" stroke-dasharray="8 7" marker-end="url(#dasharrow)"/>
+<rect x="1360" y="810" width="400" height="510" rx="16" fill="#fff8eb" stroke="#d6bb85" stroke-width="1.5"/>
+<text x="1384" y="843" font-size="21" fill="#b87516" font-weight="700" text-anchor="start">DỊCH VỤ &amp; QUY TẮC LÕI</text>
+<text x="1384" y="871" font-size="17" fill="#52677c" font-weight="400" text-anchor="start">Áp dụng xuyên suốt các đường truy cập.</text>
+<rect x="1385" y="896" width="350" height="112" rx="16" fill="white" stroke="#cfdae5" stroke-width="1.5"/>
+<rect x="1385" y="913" width="5" height="78" rx="2" fill="#b87516"/>
+<text x="1405" y="930" font-size="22" fill="#b87516" font-weight="700" text-anchor="start">OpenBao</text>
+<text x="1405" y="960" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Bí mật / khóa ký</text>
+<text x="1405" y="987" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Checkpoint ngoài PostgreSQL</text>
+<text x="1385" y="1052" font-size="19" fill="#132b43" font-weight="700" text-anchor="start">Workspace × ứng dụng × hành động</text>
+<text x="1385" y="1086" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Tài khoản dịch vụ tối thiểu quyền.</text>
+<text x="1385" y="1120" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">AI / BI / tệp cùng kiểm tra tenant.</text>
+<text x="1385" y="1172" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">Audit: ghi đồng thời an toàn,</text>
+<text x="1385" y="1202" font-size="19" fill="#52677c" font-weight="400" text-anchor="start">checkpoint độc lập và đối soát.</text>
+<text x="1385" y="1255" font-size="18" fill="#b87516" font-weight="600" text-anchor="start">Phát hiện sửa đổi trong phạm vi</text>
+<text x="1385" y="1282" font-size="18" fill="#b87516" font-weight="600" text-anchor="start">dữ liệu đã được neo và bảo vệ.</text>
+<text x="42" y="1364" font-size="20" fill="#52677c" font-weight="400" text-anchor="start">Sơ đồ logic: thể hiện tầng, trách nhiệm và các kết nối chính; không phải sơ đồ triển khai vật lý.</text>
+<text x="42" y="1395" font-size="18" fill="#52677c" font-weight="400" text-anchor="start">Mũi tên liền: phụ thuộc / dữ liệu chính. Nét đứt: điều phối cấu hình. Các tuyến phụ được lược bớt.</text>
+</g></svg>

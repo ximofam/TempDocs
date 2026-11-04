@@ -1,0 +1,22 @@
+digraph DXOS {
+graph [fontname="Liberation Sans", fontsize=24, bgcolor="#ffffff", pad=0.35, nodesep=0.35, ranksep=0.65, labelloc=t, labeljust=l, splines=polyline];
+node [shape=box, style="rounded,filled", fillcolor="#EAF2FF", color="#4575AC", fontname="Liberation Sans", fontsize=15, margin="0.22,0.15", penwidth=1.3];
+edge [fontname="Liberation Sans", fontsize=11, color="#60738A", arrowsize=0.8];
+label="08  /  TRIỂN KHAI, GIÁM SÁT VÀ PHỤC HỒI";
+
+rankdir=TB;
+git [label="Git + CI\nMã / manifest / migration / workflow\nKiểm thử · SBOM · bản phát hành",fillcolor="#F1EAFB"];
+argo [label="Argo CD\nStaging → kiểm chứng → Production",fillcolor="#F1EAFB"];
+subgraph cluster_k8s {label="KUBERNETES  ·  CẤU HÌNH TÁCH THEO MÔI TRƯỜNG";color="#8C63AD";style=rounded; fontsize=16; margin=20;
+ ingress [label="Biên công khai\nPortal · APISIX · đăng nhập Keycloak",fillcolor="#E7F6F0"];
+ runtime [label="Mạng nội bộ\nHasura · Go API · Kestra\nAI · Tệp · BI · OT"];
+ control [label="Vùng quản trị\nOperator · API quản trị\nChỉ tài khoản vận hành",fillcolor="#F1EAFB"];
+ state [label="Dữ liệu bền vững\nPostgreSQL · SeaweedFS · OpenBao\nVolume + danh tính dịch vụ riêng",shape=cylinder,fillcolor="#FFF3DD"];
+ ingress -> runtime; runtime -> state;control -> runtime [style=dashed];control -> state [style=dashed];
+}
+obs [label="Giám sát / Log / Trace\nPrometheus · Grafana · bộ thu log\nCảnh báo lỗi / độ trễ / backlog",fillcolor="#F1F5F9"];
+backup [label="Sao lưu ngoài miền sự cố\nDB + tệp + khóa + checkpoint\nMã hóa / quyền tách biệt",shape=cylinder,fillcolor="#FFF3DD"];
+restore [label="Diễn tập phục hồi\nDựng cấu hình → khôi phục dữ liệu\nĐối soát → mở phục vụ",fillcolor="#E7F6F0"];
+git -> argo;argo -> ingress [style=dashed];argo -> control [style=dashed];runtime -> obs;state -> backup -> restore;git -> restore [style=dashed];
+
+}
