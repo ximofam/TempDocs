@@ -25,13 +25,3 @@ Use UTF-8, standard Markdown, descriptive headings, and consistent punctuation. 
 
 Git history is not available in this checkout, so no established commit convention can be confirmed. Write concise commit subjects that state the change, such as `docs: clarify core platform requirements`. Pull requests should summarize the proposal sections affected, explain material architecture changes, and include rendered screenshots only when they help reviewers assess a visual change. Check all changed links and assets before requesting review.
 
-## Demo Hasura và Kestra
-
-`demo/` chứa Go API/CLI, PostgreSQL, Hasura và Kestra để học tích hợp theo sơ đồ cải tiến. Hướng dẫn tiếng Việt bắt đầu ở `demo/README.md`.
-
-- Setup: `cd demo`, `cp .env.example .env`, `make up`, `make bootstrap`.
-- Kiểm tra cấu hình: `docker compose config --quiet` trong `demo/`.
-- Kiểm thử đầy đủ với PostgreSQL thật: `make test`; xuyên suốt Hasura/Kestra/Go: `make smoke`.
-- Nếu có Go 1.26+: `go test ./...`, `go vet ./...`, `go build -buildvcs=false ./...` trong `demo/`; test DB sẽ skip nếu thiếu `TEST_DATABASE_URL`.
-- Dừng giữ dữ liệu: `make down`. `make reset` hỏi xác nhận trước khi xóa volume dữ liệu demo.
-- Giữ mã/config/hướng dẫn demo trong `demo/`, dùng SPDX Apache-2.0 cho mã nguồn tự viết, không sửa tài liệu kiến trúc gốc để khớp các giản lược của bài học.
